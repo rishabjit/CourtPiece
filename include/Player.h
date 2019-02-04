@@ -17,8 +17,9 @@ public:
 	{
 
 	}
-	Card playerTurn(std::vector<Card> currentGameCards);
+	Card playerTurn(std::vector<Card> currentGameCards, int roundNum);
 	int placeBet(int minBet);
+	void getResults(int round, const std::vector<Card> &roundCards, int t1Score, int t2Score);
 	void receiveCards(std::vector<Card> cards);
 	void receiveSingleCard(Card card);
 	void emptyCards();
@@ -40,4 +41,13 @@ public:
 	{
 		return name;
 	}
+};
+
+class PlayerTeam
+{
+public:
+	Player *p1;
+	Player *p2;
+	int scoreToBeat;
+	int currentScore;
 };

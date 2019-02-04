@@ -30,8 +30,9 @@ void printCards(std::vector<Card> playerCards)
 int main()
 {
 	EasyPlayerAI AI;
+	ManualPlayerAI AI1;
 	Player player1(&AI, "p1");
-	Player player2(&AI, "p2");
+	Player player2(&AI1, "p2");
 	Player player3(&AI, "p3");
 	Player player4(&AI, "p4");
 	Player *players[4];
@@ -50,7 +51,7 @@ int main()
 		std::cout << "\n";
 	}
 	engine.betting();
-
+	engine.gamePlay();
 	
 
 }

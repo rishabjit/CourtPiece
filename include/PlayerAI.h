@@ -8,7 +8,7 @@ private:
 	int scoreToBeat;
 public:
 	virtual int placeBet(int minBet, const std::vector<Card> playerCards, tCardType *trump) = 0;
-	virtual int playerTurn(const std::vector<Card> currentGameCards, const std::vector<Card> playerCards, int *validCards) = 0;
+	virtual int playerTurn(const std::vector<Card> currentGameCards, const std::vector<Card> playerCards, const std::vector<int> validCards, tCardType trumpCard) = 0;
 	void setTrump(tCardType _trump)
 	{
 		trump = _trump;
@@ -24,7 +24,15 @@ class EasyPlayerAI: public PlayerAI
 {
 public:
 	int placeBet(int minBet, const std::vector<Card> playerCards, tCardType *trump);
-	int playerTurn(const std::vector<Card> currentGameCards, const std::vector<Card> playerCards, int *validCards);
+	int playerTurn(const std::vector<Card> currentGameCards, const std::vector<Card> playerCards, const std::vector<int> validCards, tCardType trumpCard);
+
+};
+
+class ManualPlayerAI : public PlayerAI
+{
+public:
+	int placeBet(int minBet, const std::vector<Card> playerCards, tCardType *trump);
+	int playerTurn(const std::vector<Card> currentGameCards, const std::vector<Card> playerCards, const std::vector<int> validCards, tCardType trumpCard);
 
 };
 
